@@ -21,8 +21,6 @@ public class KOURestApiTest {
         List<String> dersListesi = restApi.listele();
         assertEquals(eskiDersListesi, dersListesi);
         }
-	
-	
 	//
 	@Test
 	public void testEkle() {
@@ -33,11 +31,12 @@ public class KOURestApiTest {
 		boolean containsResult = KOURestApi.DERSLER.contains(dersAd);
 		assertTrue(containsResult);
 	}
-	//
 	@Test
 	public void testSil() {	
 		String dersAd = "C# UYGULAMALARI";
 		boolean removeResult = KOURestApi.sil(dersAd);
 		assertTrue(removeResult);
+	
 	}
+	
 }

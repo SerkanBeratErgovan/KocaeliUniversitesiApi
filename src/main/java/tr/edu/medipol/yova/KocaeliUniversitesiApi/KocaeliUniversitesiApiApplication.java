@@ -9,8 +9,7 @@ public class KocaeliUniversitesiApiApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(KocaeliUniversitesiApiApplication.class, args);
 	}
-	public class Deneme{
-	// MAVEN.YML TEST ETMEK İÇİN OLUŞTURDUM.
+	public class deneme{
+		
 	}
-
 }

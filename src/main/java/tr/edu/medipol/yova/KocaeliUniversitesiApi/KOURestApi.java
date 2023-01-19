@@ -1,5 +1,4 @@
 package tr.edu.medipol.yova.KocaeliUniversitesiApi;
-
 import java.util.*;
 import org.springframework.web.bind.annotation.*;
 
@@ -8,8 +7,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/ders")
 
 public  class KOURestApi {
-	
-	public static final List<String> DERSLER = new ArrayList<>();
+	public final static List<String> DERSLER = new ArrayList<>();
 	{
 		DERSLER.add("C# UYGULAMALARI");
 		DERSLER.add("VERITABANI UYGULAMALARI");
@@ -24,15 +22,18 @@ public  class KOURestApi {
 	//DERS EKLEME 
 	@PostMapping("/")
 	public static boolean ekle(@RequestBody String dersAd) {
-		DERSLER.add(dersAd);
+		KOURestApi.DERSLER.add(dersAd);
 		return true;
 	}
-	//EN SON EKLENEN DERSI SILME
+	//DERSİ SİLME
+	@SuppressWarnings("static-access")
 	@GetMapping("/sil")
 	public static boolean sil(@RequestBody String dersAd) {
-		boolean containsResult = DERSLER.contains(dersAd);
-		DERSLER.remove(dersAd);
+		KOURestApi restApi = new KOURestApi();
+		boolean containsResult = restApi.DERSLER.contains(dersAd);
+		restApi.DERSLER.remove(dersAd);
 		return containsResult;
 	}
 }
+
 
